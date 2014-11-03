@@ -7,13 +7,17 @@ use sdl::joystick::ll::*;
 
 fn main() {
     init(INIT_JOYSTICK);
+    // The bindings don't currently have a safe way of initialising the joystick.
+    // The functions provided by the ll module can be used to perform the initialisation manually.
     unsafe {
         let joysticks = SDL_NumJoysticks();
         if joysticks < 1 {
             println!("Please plug a joystick in.");
             return;
         }
+        // Enable joystick event polling.
         SDL_JoystickEventState(1);
+        // Open the first joystick device, ignoring any other ones.
         SDL_JoystickOpen(0);
     }
     loop {
