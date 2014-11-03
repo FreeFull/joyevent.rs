@@ -1,0 +1,8 @@
+[package]
+
+name = "jsevent"
+version = "0.0.1"
+authors = ["Filip Szczepański <jazz2rulez@gmail.com>"]
+
+[dependencies.sdl2]
+git = "https://github.com/AngryLawyer/rust-sdl2"
